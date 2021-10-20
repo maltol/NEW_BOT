@@ -1,9 +1,9 @@
 import requests
 
 def short_report():
-    file1 = open("C:\\Users\\user\\Desktop\\autotests\\lnd.txt", "r")
+    write_doc = open("C:\\Users\\user\\Desktop\\autotests\\lnd.txt")
     error_array = []
-    for line in file1:
+    for line in write_doc:
         response = requests.get(line)
         if response.status_code > 200:
             error_array.append("\U0000274C" + str(response.status_code) + ' ' + line)
