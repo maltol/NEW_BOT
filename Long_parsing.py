@@ -1,7 +1,6 @@
 import requests
 import pandas as pd
 
-
 def parsing1():
     df = pd.read_excel('C:\\Users\\user\\Desktop\\autotests\\lands.xlsx')
     pd.set_option('display.max_rows', None)

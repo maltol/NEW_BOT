@@ -1,7 +1,7 @@
 import telebot
 from telebot import types
-from TrueAnswer import parsing1
-from asd import short_report
+from Long_parsing import parsing1
+from Quick_parsing import short_report
 import time
 
 bot = telebot.TeleBot("2036325211:AAGxlMxr4ty9uuoEGamhL3z-njenJojy3Bo")
