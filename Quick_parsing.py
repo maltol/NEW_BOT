@@ -2,7 +2,7 @@ import requests
 import pandas as pd
 
 def short_report():
-    df = pd.read_excel('C:\\Users\\user\\Desktop\\autotests\\lands.xlsx')
+    df = pd.read_excel('lands.xlsx')
     pd.set_option('display.max_columns', None)
     pd.set_option('display.max_rows', None)
     error_array = []
