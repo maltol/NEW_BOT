@@ -1,17 +1,14 @@
 import requests
-import pandas as pd
 
 def short_report():
-    df = pd.read_excel('lands.xlsx')
-    pd.set_option('display.max_columns', None)
-    pd.set_option('display.max_rows', None)
+    file1 = open("C:\\Users\\user\\Desktop\\autotests\\lnd.txt", "r")
     error_array = []
-    for index, websites in df.iterrows():
-        try:
-            response = requests.get(websites["Name"])
-            df.at[index, 'sts'] = "{}".format(response.status_code)
-            if response.status_code > 200:
-                error_array.append('\U0000274C' "{}".format(response.status_code) + ' ' + websites["Name"])
-        except requests.ConnectionError:
+    for line in file1:
+        response = requests.get(line)
+        if response.status_code > 200:
+            error_array.append("\U0000274C" + str(response.status_code) + ' ' + line)
+        if Exception:
             pass
-    return "\n".join(error_array)
+        if not line:
+            break
+    return ("\r".join(error_array))
