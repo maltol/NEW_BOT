@@ -5,11 +5,11 @@ def short_report():
     write_doc = open("lands_list.txt")
     error_array = []
     for line in write_doc:
+        line = line.rstrip('\n')
         response = requests.get(line)
-        print(str(response.status_code) + ' ' + line)
-        # if response.status_code > 200:
-        #     error_array.append("\U0000274C" + str(response.status_code) + ' ' + line)
-    return ("\r".join(error_array))
+        if response.status_code > 200:
+             error_array.append("\U0000274C" + str(response.status_code) + ' ' + line)
+    return ('\n'.join(error_array))
 
 def parsing1():
     df = pd.read_excel('lands.xlsx')
