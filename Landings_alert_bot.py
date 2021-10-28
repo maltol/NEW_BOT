@@ -3,7 +3,7 @@ from telebot import types
 from funcs_parsing import short_report, parsing1
 import time
 
-bot = telebot.TeleBot("2036325211:AAGxlMxr4ty9uuoEGamhL3z-njenJojy3Bo")
+bot = telebot.TeleBot("")
 
 @bot.message_handler(commands=['start'])
 def send_welcome(message):
@@ -28,6 +28,7 @@ def menu(message):
 			if len(parsing1()) > 4096:
 				for x in range(0, len(parsing1()), 4096):
 					bot.send_message(message.chat.id, (parsing1()[x:x + 4096]))
+			else: bot.send_message(message.chat.id, parsing1())
 		if message.text == "Быстрая сводка по ошибкам":
 			bot.send_message(message.chat.id, 'Подожди немного, смотрю...'"\U0001F440")
 		#	if len(short_report()) > 4096:
@@ -37,7 +38,7 @@ def menu(message):
 		if message.text == "Хочу получать отчет по лендингам c ошибками каждые 5 минут":
 			bot.send_message(message.chat.id, 'Выбор принят')
 			while True:
-				time.sleep(300)
+				time.sleep(100)
 				bot.send_message(message.chat.id, (short_report()))
 
 bot.polling(none_stop=True, interval=0, timeout=123)
